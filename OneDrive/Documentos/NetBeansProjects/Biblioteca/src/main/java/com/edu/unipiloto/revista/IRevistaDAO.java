@@ -7,12 +7,12 @@ public interface IRevistaDAO {
     
      public List<Revista> getAllRevistas();
 
-    public void updateLibro(Revista rv);
+    public void EncuadernaRevista(Revista rv);
 
-    public void deleteLibro(Revista rv);
+    public void deleteRevista(Revista rv);
 
-    public void addLibro(Revista rv);
+    public void addRevista(Revista rv);
 
-    public Revista searchLibro(int id);
+    public Revista searchRevista(int id);
     
 }

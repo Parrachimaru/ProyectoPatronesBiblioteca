@@ -39,7 +39,7 @@ public class LibroDAOImplementation implements ILibroDAO {
     protected void conectar() {
         try {
             Class.forName(driver);
-            System.out.println("Cargar los controladores de la bd");
+            System.out.println("Cargar los controladores de la base de datos funcionando full");
             connection = DriverManager.getConnection(url, login, password);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LibroDAOImplementation.class.getName()).log(Level.SEVERE, null, ex);
@@ -117,6 +117,7 @@ public class LibroDAOImplementation implements ILibroDAO {
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             statement.executeUpdate(sentencia);
+
         } catch (SQLException ex) {
             Logger.getLogger(LibroDAOImplementation.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -128,7 +129,7 @@ public class LibroDAOImplementation implements ILibroDAO {
         if (connection == null) {
             conectar();
         }
-        /*////prueba////
+        /////prueba////
         // Crear un objeto Scanner para leer la entrada del usuario
         Scanner scanner = new Scanner(System.in);
 
@@ -151,16 +152,13 @@ public class LibroDAOImplementation implements ILibroDAO {
         // Crear el objeto Libro con los datos ingresados por el usuario
         Libro nuevoLibro = new Libro(id, titulo, autor, editorial, disponibilidad);
 
-        // Cerrar el Scanner
-        scanner.close();
-
         // Insertar el nuevo libro en la base de datos
         sentencia = "INSERT INTO APP.LIBROS VALUES(" + nuevoLibro.getId_libro() + ", '"
                 + nuevoLibro.getTitulo() + "', '" + nuevoLibro.getAutor() + "', '"
                 + nuevoLibro.getEditorial() + "', " + nuevoLibro.getDisponibilidad() + ")";
-        /////termina la prueba///*/
+        /////termina la prueba////
 
-        sentencia = "INSERT INTO APP.LIBROS VALUES(" + lb.getId_libro() + ", '" + lb.getTitulo() + "', '" + lb.getAutor() + "', '" + lb.getEditorial() + "', " + lb.getDisponibilidad() + ")";
+        //sentencia = "INSERT INTO APP.LIBROS VALUES(" + lb.getId_libro() + ", '" + lb.getTitulo() + "', '" + lb.getAutor() + "', '" + lb.getEditorial() + "', " + lb.getDisponibilidad() + ")";
         try {
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             statement.executeUpdate(sentencia);
@@ -197,8 +195,6 @@ public class LibroDAOImplementation implements ILibroDAO {
                 libroEncontrado = new Libro(id_libro, titulo, autor, editorial, disponibilidad);
             }
 
-            // Cerrar el Scanner
-            scanner.close();
         } catch (SQLException ex) {
             Logger.getLogger(LibroDAOImplementation.class.getName()).log(Level.SEVERE, null, ex);
         }

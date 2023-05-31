@@ -6,9 +6,9 @@ public class Revista {
     private String titulo;
     private String editor;
     private String fecha;
-    private double disponibilidad;
+    private boolean disponibilidad;
 
-    public Revista(int id_revista, String titulo, String editor, String fecha, double disponibilidad) {
+    public Revista(int id_revista, String titulo, String editor, String fecha, boolean disponibilidad) {
         this.id_revista = id_revista;
         this.titulo = titulo;
         this.editor = editor;
@@ -48,11 +48,11 @@ public class Revista {
         this.fecha = fecha;
     }
 
-    public double getDisponibilidad() {
+    public boolean getDisponibilidad() {
         return disponibilidad;
     }
 
-    public void setDisponibilidad(double disponibilidad) {
+    public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
     
