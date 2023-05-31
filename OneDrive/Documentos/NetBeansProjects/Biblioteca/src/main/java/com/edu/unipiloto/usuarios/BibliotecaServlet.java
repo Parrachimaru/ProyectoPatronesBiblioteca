@@ -1,4 +1,4 @@
-package com.edu.unipiloto.servidor;
+package com.edu.unipiloto.usuarios;
 
 import com.edu.unipiloto.libro.Libro;
 import java.io.IOException;
@@ -12,11 +12,9 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 
 public class BibliotecaServlet extends HttpServlet {
-    
 
     private LibroDAOImplementation libroDAO;
-    
-        
+
     @Override
     public void init() throws ServletException {
         super.init();
@@ -47,12 +45,9 @@ public class BibliotecaServlet extends HttpServlet {
         List<Libro> listaLibros = libroDAO.getAllLibros();
         request.setAttribute("listaLibros", listaLibros);
 
-        
-
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
-        
+
         processRequest(request, response);
 
     }

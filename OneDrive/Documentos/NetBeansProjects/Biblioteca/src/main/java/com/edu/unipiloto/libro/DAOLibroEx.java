@@ -11,9 +11,9 @@ public class DAOLibroEx {
         System.out.println("\n Se ELIMINA un libro");
         Libro.deleteLibro(new Libro(2016, "pruebasss", "libardinni", "sapeee", true));
         Libro.getAllLibros();
-        
+
         System.out.println("\n buscar un libro");
-        Libro.searchLibro()
+        //LibroDAOImplementation dao = new LibroDAOImplementation();
 
     }
 
